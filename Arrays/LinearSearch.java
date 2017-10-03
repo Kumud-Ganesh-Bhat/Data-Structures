@@ -34,6 +34,7 @@ import java.util.Scanner;
  */
 public class LinearSearch {
     
+    //Iterative approach
     public static int linearSearch(int[] arr, int n, int target){
         int i;
         for(i=0; i<n; i++){
@@ -42,6 +43,17 @@ public class LinearSearch {
         }
         return -1;
     }
+    
+    //Recursive approach
+    public static int recLinearSearch(int[] arr, int target, int i){
+        if(arr[i] == target)
+            return i;
+        else if(i>=arr.length)
+             return -1;
+        else
+            return recLinearSearch(arr, target, i+1);
+    }
+
     
     public static void main(String[] args){
         int n; //size of the array
@@ -65,6 +77,9 @@ public class LinearSearch {
         target = sc.nextInt();
         
         i = linearSearch(arr, n, target);
+        
+        //Recursive approach
+        // i = recLinearSearch(arr, target, 0);
         
         System.out.println("Element" + " "+ target + " " + "found at index" + " " + i);
         
