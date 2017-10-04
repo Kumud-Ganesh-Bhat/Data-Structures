@@ -17,16 +17,15 @@ import java.util.Scanner;
  */
 public class FindMajorityElement {
     
-    public static void findMajorityElement(int[] arr, int n){
+    public static int findMajorityElement(int[] arr, int n){
         int i,j; //loop variables
         for(i=0; i<=n/2; i++){ //Time complexity O(n/2)
             j= i+n/2;
-            if(arr[i] == arr[j]){
-                System.out.println("Majority elements is" + " " + arr[i]);
-                break;
-                
+            if(j<n && arr[i] == arr[j]){
+                return arr[i];
             }
         }
+        return -1;
         
     }
     
@@ -34,6 +33,7 @@ public class FindMajorityElement {
         int n; //number of elements
         int[] arr; //array of elements
         int i; //loop variable
+        int mElement; //major element
         
         Scanner sc = new Scanner(System.in);
         
@@ -47,7 +47,12 @@ public class FindMajorityElement {
         for(i=0; i<n; i++)
             arr[i] = sc.nextInt();
         
-        findMajorityElement(arr,n);
+        mElement = findMajorityElement(arr,n);
+        
+        if(mElement != -1)
+            System.out.println("Majority element is" + " " + mElement);
+        else
+            System.out.println("Majority element not found");
     }
     
 }
