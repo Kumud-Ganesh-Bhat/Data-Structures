@@ -63,25 +63,17 @@ public class SumCloseToZero {
         int sum = Integer.MAX_VALUE; //variable holding resulting sum
         
         while(l<r){
-            sum = arr[l]+arr[r];
-            //if sum is exactly zero then come out of loop
-            if(sum == 0)
-                break;
-            while(sum>0 && r>l){
-                   //If sum is positive decrement the right index to get still more minimum sum
-                   temp = arr[l]+arr[--r];
-                   //if sum is greater on positive side it indicates it is moving far away from zero
-                   sum = (sum< temp ? sum :temp );
-                   a = arr[l]; //first element in pair
-                   b = arr[r]; //second element in pair
+            temp = arr[l]+arr[r];
+            if(Math.abs(temp) < Math.abs(sum)){
+                sum = temp;
+                a = arr[l];
+                b = arr[r];
             }
-            while(sum<0 && l<r){
-                temp = arr[++l]+arr[r];
-                //if sum is lesser on negative side it indicates it is moving far away from zero
-                sum = (sum>temp)? sum:temp;
-                a = arr[l]; //first element in pair
-                b = arr[r]; //second element in pair
-            }
+            if(temp<0)
+                r--;
+            else
+                l++;
+                
         }
         
         System.out.println("Pair of elements are: " + "(" + a + "," + b + ")" );
