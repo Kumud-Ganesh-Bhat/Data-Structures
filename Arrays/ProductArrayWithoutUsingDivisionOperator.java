@@ -17,7 +17,7 @@ import java.util.Arrays;
  * 
  */
 public class ProductArrayWithoutUsingDivisionOperator {
-    
+    //This method is just for reference
     public static void findProdArray_WithDivisionOp(int[] arr){
         int[] prodArray = new int[arr.length];
         int i; //loop variable
