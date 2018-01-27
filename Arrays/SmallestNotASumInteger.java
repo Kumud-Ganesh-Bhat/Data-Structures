@@ -20,8 +20,12 @@ import java.util.Arrays;
 public class SmallestNotASumInteger {
     
     static public void findSmallestInteger(int[] arr, int n){   //Time Complexity: O(n), SC: O(1)
+        
         int i; //loop variable
         int smallSum = 1; //smallest integer that cannot be sum so far
+        
+        Arrays.sort(arr);
+        
         for(i=0; i<n; i++){
             if(arr[i] <= smallSum)
                 smallSum+= arr[i];
