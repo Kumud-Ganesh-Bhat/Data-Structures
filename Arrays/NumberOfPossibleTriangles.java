@@ -25,9 +25,11 @@ public class NumberOfPossibleTriangles {
         int i,j,k; //loop or index variables
         int nTriangles =  0;
         
-        for(i=0; i<n-3; i++){
+        Arrays.sort(arr);
+        
+        for(i=0; i<n-2; i++){
             k = i+2;
-            for(j=i+1; j<n-2; j++){
+            for(j=i+1; j<n-1; j++){
                 while(k<n && arr[i]+arr[j]>arr[k])
                     k++;
                 nTriangles+= k-j-1;
